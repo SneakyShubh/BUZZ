@@ -11,5 +11,4 @@ urlpatterns = [
     path('login/',views.login,name='index'),
     path('logout/',views.logout,name='index'),
     path('signup/',views.signup,name='index'),
-    path('login/profilepic/',views.profile_pic,name='index'),
 ]

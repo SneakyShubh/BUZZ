@@ -119,12 +119,34 @@
     
     <main class="d-flex flex-nowrap mx-4 my-4">
       <div class="card py-4 px-4">
-          
+        
+        {% if obj %}
+        <img src="{{obj.image.url}}" alt="" width="320" height="320" class="rounded-circle me-2">
+        {% endif %}
+
+      {% if sed %}
       <img src="{% static 'images/profile.jpg' %}" alt="" width="320" height="320" class="rounded-circle me-2"> 
-      <form action="profilepic/" method="POST">
-        <input type="file" id="myFile" name="filename">
-        <input type="submit">
-      </form>
+
+      {% endif %}
+      <button class="btn btn-outline-success my-4" onclick=myfuction()> Edit </button>
+      <script> const myfuction=()=>
+        document.getElementById('abc').style.display = document.getElementById('abc').style.display == 'none' ? 'block' : 'none';
+      </script>
+      <div class="container my-4" style="display:none" id="abc">
+        
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            {{form1.as_p}}
+            
+
+            <button class="btn btn-primary btn-lg" type="submit" >Upload</button>
+        </form>
+        
+        <hr>
+        
+    </div>
+      
 
 
       </div>
